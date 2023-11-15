@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Тестируем сайт https://demoqa.com/ c помощью TypeScript и Playwright .",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:e2e": "npx playwright test tests/ --project=chromium",
+    "test:e2e:all": "npx playwright test tests/ --project=all-browsers-and-tests",
+    "test:e2e:smoke": "npx playwright test tests/ --grep @smoke --project=chromium",
+    "test:e2e:non-smoke": "npx playwright test tests/ --grep-invert @smoke --project=chromium"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
