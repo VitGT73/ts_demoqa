@@ -1,8 +1,9 @@
-/node_modules/
-/playwright-report/
-/test-results/
-/playwright/.cache/
+node_modules
+playwright-report
+test-results/
+playwright/.cache
 storageState.json
-.auth/
+.auth
 *.env
 build
+playwright/.auth

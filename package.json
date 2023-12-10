@@ -9,7 +9,7 @@
     "test:e2e:smoke": "npx playwright test tests/ --grep @smoke --project=chromium",
     "test:e2e:non-smoke": "npx playwright test tests/ --grep-invert @smoke --project=chromium",
     "test:me": "npx playwright test lesson1.spec.ts --project=chromium",
-    "test:pvc": "npx playwright test mytest.spec.ts --headed --project=chromium",
+    "test:demoqa": "npx playwright test login.spec.ts --headed --project=demoqa",
     "test-ui": "npx playwright test tests/ui/",
     "test-ui-c": "npx playwright test tests/ui/specs/ --project=chromium",
     "test-ui-h": "npx playwright test tests/ui/specs/ --headed",
@@ -23,6 +23,7 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.39.0",
-    "@types/node": "^20.9.0"
+    "@types/node": "^20.9.0",
+    "dotenv": "^16.3.1"
   }
 }

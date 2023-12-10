@@ -1,7 +1,7 @@
 ### Установка и настройка Playwright для TypeScript
 
 ##### Проверяем версии пакетов node.js
-```
+```bash
 node --version
 npm --version
 npx --version
@@ -51,3 +51,11 @@ And check out the following files:
   - ./tests/example.spec.ts - Example end-to-end test
   - ./tests-examples/demo-todo-app.spec.ts - Demo Todo App end-to-end tests
   - ./playwright.config.ts - Playwright Test configuration
+
+
+## Полезные настройки
+
+### Внутри тестов
+### В fixture
+### В package.json
+### В playwright.json

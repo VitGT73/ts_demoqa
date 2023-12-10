@@ -3,14 +3,16 @@ import messages from '../../utils/messages';
 
 class LoginPage {
   readonly page: Page;
+  readonly url: string;
   readonly loginButton: Locator;
   readonly newUserButton: Locator;
   readonly messagePanel: Locator;
   readonly password: Locator;
   readonly userName: Locator;
 
-  constructor(page: Page) {
+  constructor(page: Page, baseURL: string) {
     this.page = page;
+    this.url = baseURL + '/login';
     this.loginButton = page.getByRole('button', { name: 'Login' });
     this.newUserButton = page.getByRole('button', { name: 'newUser' });
     this.messagePanel = page.locator('#output');
@@ -18,17 +20,23 @@ class LoginPage {
     this.userName = page.getByPlaceholder('UserName');
   }
 
-  async fillEmail(email: string) {
-    await this.userName.fill(email);
+  async open(){
+    await  this.page.goto(this.url);
   }
 
-  async fillPassword(password: string) {
-    await this.password.fill(password);
-  }
+  // async fillEmail(email: string) {
+  //   await this.userName.fill(email);
+  // }
+
+  // async fillPassword(password: string) {
+  //   await this.password.fill(password);
+  // }
 
   async doLogin(email: string, password: string) {
-    await this.fillEmail(email);
-    await this.fillPassword(password);
+    await this.userName.fill(email);
+    await this.password.fill(password);
+    // await this.fillEmail(email);
+    // await this.fillPassword(password);
     await this.loginButton.click();
   }
 
