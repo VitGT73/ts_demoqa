@@ -1,7 +1,6 @@
-import { type Page, type Locator , expect } from '@playwright/test';
-import messages from '../../utils/messages';
+import { type Page, type Locator, expect } from "@playwright/test";
 
-class LoginPage {
+export class LoginPage {
   readonly page: Page;
   readonly url: string;
   readonly loginButton: Locator;
@@ -10,18 +9,18 @@ class LoginPage {
   readonly password: Locator;
   readonly userName: Locator;
 
-  constructor(page: Page, baseURL: string) {
+  constructor(page: Page) {
     this.page = page;
-    this.url = baseURL + '/login';
-    this.loginButton = page.getByRole('button', { name: 'Login' });
-    this.newUserButton = page.getByRole('button', { name: 'newUser' });
-    this.messagePanel = page.locator('#output');
-    this.password = page.getByPlaceholder('Password');
-    this.userName = page.getByPlaceholder('UserName');
+    this.url = process.env.BASE_URL + "/login";
+    this.loginButton = page.getByRole("button", { name: "Login" });
+    this.newUserButton = page.getByRole("button", { name: "newUser" });
+    this.messagePanel = page.locator("#output");
+    this.password = page.getByPlaceholder("Password");
+    this.userName = page.getByPlaceholder("UserName");
   }
 
-  async open(){
-    await  this.page.goto(this.url);
+  async open() {
+    await this.page.goto(this.url);
   }
 
   // async fillEmail(email: string) {
@@ -46,8 +45,8 @@ class LoginPage {
   }
 
   async checkInvalidCredentials() {
-    await expect(this.messagePanel).toHaveText(messages.login.invalid);
+    await expect(this.messagePanel).toHaveText("Invalid username or password!");
   }
 }
 
-export default LoginPage;
+// export default LoginPage;
